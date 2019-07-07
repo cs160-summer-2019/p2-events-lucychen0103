@@ -11,7 +11,14 @@
 
 	<script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
 	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
-
+<style>
+  .p2-circle {
+    display: inline-block;
+    padding: 5px;
+    background: #EEE;
+    
+}
+  </style>
 </head>
 
 <body>
@@ -39,8 +46,57 @@
 
 
 <script type="text/javascript">
+ $(document).ready(function(){
 
-	// your solution here
+  var clicked = false;
+
+  var Start = function () {
+      if (clicked) return;
+
+    $(".shape-container").append("<div class='p2-circle'>TEST</div>")
+      setTimeout(Start, 3000);
+  };
+
+  Start();
+
+  $(document).on("click",".btn",function() {
+     // When this is fired, function Start() should stop running
+
+     clicked = true;
+  });
+
+});
+
+// var timer;
+  
+// function go() {
+  
+//   };
+
+//   $( document ).ready( go );
+  
+  
+//  $(function() {
+//   for (var i = 0; i < 20; i++) {
+//   timer = setTimeout(function () {
+//     $(".shape-container").append("<div class='p2-circle'>TEST</div>")
+//  }, 1000 * i);
+//   }
+//  });
+  
+//   $('.btn').click(function(){
+//     alert("Window Loaded");
+//     // Clear the timeout
+//     clearTimeout(timer);
+// });
+//  $(document ).load(function() {
+//   // Handler for .load() called.
+//    alert("Window Loaded");
+// //    $(".shape-container").append("<div class='p2-circle'>TEST</div>")
+// });
+
+// $( document ).ready( go );
+// window.setInterval(change, 3000);
 
 </script>
 </body>
